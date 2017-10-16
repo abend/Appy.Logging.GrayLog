@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Arebis .NET Extensions for Logging")]
+[assembly: AssemblyTitle("Appy .NET Extensions for Logging")]
 [assembly: AssemblyDescription(".NET GrayLog client library written in C#")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Arebis")]
-[assembly: AssemblyProduct("Arebis Library")]
-[assembly: AssemblyCopyright("© Copyright 2016 Arebis")]
+[assembly: AssemblyCompany("Appy")]
+[assembly: AssemblyProduct("Appy Library")]
+[assembly: AssemblyCopyright("© Copyright 2016 Appy")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

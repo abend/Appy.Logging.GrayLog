@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Arebis.Logging.GrayLog
+namespace Appy.Logging.GrayLog
 {
     /// <summary>
     /// Standard Syslog levels to be used according to the GELF format specification.

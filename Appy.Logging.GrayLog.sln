@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arebis.Logging.GrayLog", "Arebis.Logging.GrayLog\Arebis.Logging.GrayLog.csproj", "{D6BE2568-FA42-4B01-8D46-01FADF958FD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appy.Logging.GrayLog", "Appy.Logging.GrayLog\Appy.Logging.GrayLog.csproj", "{D6BE2568-FA42-4B01-8D46-01FADF958FD1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6221C7F-F556-463C-9089-8E3BD3E87872}"
 	ProjectSection(SolutionItems) = preProject

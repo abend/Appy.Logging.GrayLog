@@ -5,7 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Net.Sockets;
 
-namespace Arebis.Logging.GrayLog
+namespace Appy.Logging.GrayLog
 {
     /// <summary>
     /// A GrayLog client using the UDP protocol.

@@ -7,7 +7,7 @@ using System.IO.Compression;
 using System.Reflection;
 using System.Text;
 
-namespace Arebis.Logging.GrayLog
+namespace Appy.Logging.GrayLog
 {
     /// <summary>
     /// Base for GrayLog client implementations.

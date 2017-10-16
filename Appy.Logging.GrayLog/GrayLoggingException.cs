@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
-namespace Arebis.Logging.GrayLog
+namespace Appy.Logging.GrayLog
 {
     /// <summary>
     /// A GrayLog related exception.
