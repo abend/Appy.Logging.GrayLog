@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Title>GrayLog logging client</Title>
+    <Version>1.0.1</Version>
+    <Description>.NET GrayLog logging client library</Description>
+    <Copyright>Copyright 2017 Sasha Kovar</Copyright>
+    <authors>codetuner, abend</authors>
+    <owners>abend</owners>
+    <packageLicenseUrl>https://raw.githubusercontent.com/abend/Appy.Logging.GrayLog/master/LICENSE</packageLicenseUrl>
+    <packageProjectUrl>https://github.com/abend/Appy.Logging.GrayLog</packageProjectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <packageTags>Logging GrayLog</packageTags>
+    <packageOutputPath>build</packageOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+</Project>

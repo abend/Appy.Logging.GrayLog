@@ -1,4 +1,8 @@
-Arebis.Logging.GrayLog
+**NOTE**: This project is descended from 
+[codetuner's Arebis.Logging.GrayLog](https://github.com/codetuner/Arebis.Logging.GrayLog).
+All good code is his.  It is modified to use .net core's configuration system.
+
+Appy.Logging.GrayLog
 ======================
 
 .NET GrayLog client library written in C#
@@ -6,14 +10,14 @@ Arebis.Logging.GrayLog
 Features and Limitations
 ------------------------
 
-The Arebis GrayLog library is a simple library to write logging records to GrayLog
+The Appy GrayLog library is a simple library to write logging records to GrayLog
 using the UDP protocol. The implementation sends messages by GZIP compressing them,
 and chuncking them if needed, according to the specifications of the Graylog Extended
 Log Format (GELF).
 
-NuGet package: https://www.nuget.org/packages/Arebis.Logging.GrayLog/
+NuGet package: https://www.nuget.org/packages/Appy.Logging.GrayLog/
 
-Source code and documentation: https://github.com/codetuner/Arebis.Logging.GrayLog
+Source code and documentation: https://github.com/abend/Appy.Logging.GrayLog
 
 GELF specifications: http://docs.graylog.org/en/latest/pages/gelf.html
 
@@ -22,7 +26,7 @@ Sample Usage
 
 A simple "Hello World" logging application can be created as follows:
 
-Create a project and add the NuGet package "Arebis.Logging.GrayLog" to your project.
+Create a project and add the NuGet package "Appy.Logging.GrayLog" to your project.
 
 Then use the following code to write a "Hello World !" log message:
 
@@ -32,7 +36,7 @@ Then use the following code to write a "Hello World !" log message:
     }
 
 This results in the following logging:
-![Sample 1 logging](https://raw.githubusercontent.com/codetuner/Arebis.Logging.GrayLog/master/screenshot_sample1.png "Sample 1 logging")
+![Sample 1 logging](https://raw.githubusercontent.com/abend/Appy.Logging.GrayLog/master/screenshot_sample1.png "Sample 1 logging")
 
 The Send() method has the following signature:
 
@@ -49,7 +53,7 @@ A more complete example:
     }
 
 Which results in the following logging:
-![Sample 2 logging](https://raw.githubusercontent.com/codetuner/Arebis.Logging.GrayLog/master/screenshot_sample2.png "Sample 2 logging")
+![Sample 2 logging](https://raw.githubusercontent.com/abend/Appy.Logging.GrayLog/master/screenshot_sample2.png "Sample 2 logging")
 
 There is also a convenience method to send Exception objects:
 
@@ -72,25 +76,39 @@ There is also a convenience method to send Exception objects:
     }
 
 Which results in the following logging:
-![Sample 3 logging](https://raw.githubusercontent.com/codetuner/Arebis.Logging.GrayLog/master/screenshot_sample3.png "Sample 3 logging")
+![Sample 3 logging](https://raw.githubusercontent.com/abend/Appy.Logging.GrayLog/master/screenshot_sample3.png "Sample 3 logging")
 
-These samples assume you have configured your GrayLog connection data into the App.config or Web.config.
+These samples assume you have configured your GrayLog connection data into the appsettings.config file
+in the root of your project.
+
 You need at least following AppSetting keys:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <configuration>
-      <appSettings>
-        <add key="GrayLogFacility" value="HelloWorldSample"/>
-        <add key="GrayLogHost" value="localhost"/>
-      </appSettings>
-    </configuration>
+    {
+        "GraylogSettings": {
+            "Facility": "HelloWorldSample",
+            "Host": "localhost",
+        }
+    }
 
-The **GrayLogFacility** setting specifies the facility argument to set for all messages. The **GrayLogHost** is
-the server name of your GrayLog instance. You can also specify the **GrayLogUdpPort** setting if you want
-to override the default port number 12201.
+Here is a full list of options, with defaults specified:
 
-Additionally, you can set a compression treshold with the AppSetting key **GrayLogCompressionTreshold**. By default this value is
-0 and means compression is always enabled. Setting this value to i.e. 500 would mean to apply compression only when message body
-is more than 500 bytes. A value of -1 disables compression completely.
+    {
+        "GraylogSettings": {
+            "Facility": "HelloWorldSample",
+            "Host": "localhost",
+            "UdpPort": 12201,
+            "CompressionTreshold": 0,
+            "UdpMaxPacketSize": 512
+        }
+    }
 
-For further usage details and manual, check the [project's WIKI page](https://github.com/codetuner/Arebis.Logging.GrayLog/wiki).
+The **Facility** setting specifies the facility argument to set for all
+messages. The **Host** is the server name of your GrayLog instance. You
+can also specify the **UdpPort** setting if you want to override the
+default port number 12201.
+
+Additionally, you can set a compression treshold with the AppSetting key
+**CompressionTreshold**. By default this value is 0 and means
+compression is always enabled. Setting this value to i.e. 500 would mean
+to apply compression only when message body is more than 500 bytes. A
+value of -1 disables compression completely.
