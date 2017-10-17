@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <Title>GrayLog logging client</Title>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>.NET GrayLog logging client library</Description>
     <Copyright>Copyright 2017 Sasha Kovar</Copyright>
     <authors>codetuner, abend</authors>
