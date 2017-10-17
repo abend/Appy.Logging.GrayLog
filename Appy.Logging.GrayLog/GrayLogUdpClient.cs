@@ -13,10 +13,14 @@ namespace Appy.Logging.GrayLog
     public class GrayLogUdpClient : GrayLogClient
     {
         /// <summary>
-        /// Creates a new GrayLogUdpClient using the "GrayLogFacility", "GrayLogHost" and optionally "GrayLogUdpPort" AppSettings.
+        /// Creates a new GrayLogUdpClient using the "Facility",
+        /// "Host" and optionally "UdpPort" appsettings configuration
+        /// variables in the "GraylogSettings" section.
         /// </summary>
         public GrayLogUdpClient()
-            : this(ConfigurationManager.AppSettings["GrayLogFacility"], ConfigurationManager.AppSettings["GrayLogHost"], Int32.Parse(ConfigurationManager.AppSettings["GrayLogUdpPort"] ?? "12201"))
+            : this(Config["Facility"],
+                   Config["Host"],
+                   Int32.Parse(Config["UdpPort"] ?? "12201"))
         { }
 
         /// <summary>
@@ -44,7 +48,7 @@ namespace Appy.Logging.GrayLog
             this.UdpClient = udpClient;
             this.UdpClientIsOwned = udpClientIsOwned;
             this.NextChunckedMessageId = new Random().Next(0, Int32.MaxValue);
-            this.MaxPacketSize = Int32.Parse(ConfigurationManager.AppSettings["GrayLogUdpMaxPacketSize"] ?? "512");
+            this.MaxPacketSize = Int32.Parse(Config["UdpMaxPacketSize"] ?? "512");
         }
 
         private bool UdpClientIsOwned { get; set; }
@@ -55,7 +59,7 @@ namespace Appy.Logging.GrayLog
 
         /// <summary>
         /// Maximum UDP packet payload byte size used.
-        /// Can also be overriden by the "GrayLogUdpMaxPacketSize" AppSetting.
+        /// Can also be overriden by the "UdpMaxPacketSize" appsetting variable.
         /// </summary>
         public int MaxPacketSize { get; set; }
 

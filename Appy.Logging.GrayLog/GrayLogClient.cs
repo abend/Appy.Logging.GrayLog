@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace Appy.Logging.GrayLog
 {
@@ -15,14 +16,31 @@ namespace Appy.Logging.GrayLog
     public abstract class GrayLogClient : IDisposable
     {
         /// <summary>
+        /// Static initializer for configuration settings.
+        /// </summary>
+        static GrayLogClient()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
+
+            Config = builder.Build().GetSection("GraylogSettings");
+        }
+
+        /// <summary>
         /// Constructs a new GrayLogClient.
         /// </summary>
         /// <param name="facility">The facility to set on all sent messages.</param>
         protected GrayLogClient(string facility)
         {
             this.Facility = facility;
-            this.CompressionTreshold = Int32.Parse(ConfigurationManager.AppSettings["GrayLogCompressionTreshold"] ?? "0");
+            this.CompressionTreshold = Int32.Parse(Config["CompressionTreshold"] ?? "0");
         }
+
+        /// <summary>
+        /// Our configuration variables.
+        /// </summary>
+		protected static IConfigurationSection Config { get; set; }
 
         /// <summary>
         /// The facility to set on all sent messages.
