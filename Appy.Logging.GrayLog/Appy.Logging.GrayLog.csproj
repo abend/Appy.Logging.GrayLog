@@ -5,7 +5,7 @@
     <Version>1.0.1</Version>
     <Description>.NET GrayLog logging client library</Description>
     <Copyright>Copyright 2017 Sasha Kovar</Copyright>
-    <authors>Codetuner, abend</authors>
+    <authors>codetuner, abend</authors>
     <owners>abend</owners>
     <packageLicenseUrl>https://raw.githubusercontent.com/abend/Appy.Logging.GrayLog/master/LICENSE</packageLicenseUrl>
     <packageProjectUrl>https://github.com/abend/Appy.Logging.GrayLog</packageProjectUrl>
