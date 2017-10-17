@@ -99,7 +99,7 @@ namespace Appy.Logging.GrayLog
                     var chunkSize = 12 + objectStream.Read(chunkBuffer, 12, MaxPacketSize - 12);
 
                     // Send UDP packet:
-                    Debug.WriteLine(String.Format("GrayLogUdpClient - Writing chunk {0} ({1}/{2}) {3:#,##0} bytes : ", NextChunckedMessageId, chunkNumber + 1, chunkCount, chunkSize) + String.Format("[{0:X2}-{1:X2}, {2:X2}-{3:X2}-{4:X2}-{5:X2}-{6:X2}-{7:X2}-{8:X2}-{9:X2}, {10:X2}, {11:X2}, [{12:X2},{13:X2},{14:X2},{15:X2},...]]", chunkBuffer[0], chunkBuffer[1], chunkBuffer[2], chunkBuffer[3], chunkBuffer[4], chunkBuffer[5], chunkBuffer[6], chunkBuffer[7], chunkBuffer[8], chunkBuffer[9], chunkBuffer[10], chunkBuffer[11], chunkBuffer[12], chunkBuffer[13], chunkBuffer[14], chunkBuffer[15]));
+                    // Debug.WriteLine(String.Format("GrayLogUdpClient - Writing chunk {0} ({1}/{2}) {3:#,##0} bytes : ", NextChunckedMessageId, chunkNumber + 1, chunkCount, chunkSize) + String.Format("[{0:X2}-{1:X2}, {2:X2}-{3:X2}-{4:X2}-{5:X2}-{6:X2}-{7:X2}-{8:X2}-{9:X2}, {10:X2}, {11:X2}, [{12:X2},{13:X2},{14:X2},{15:X2},...]]", chunkBuffer[0], chunkBuffer[1], chunkBuffer[2], chunkBuffer[3], chunkBuffer[4], chunkBuffer[5], chunkBuffer[6], chunkBuffer[7], chunkBuffer[8], chunkBuffer[9], chunkBuffer[10], chunkBuffer[11], chunkBuffer[12], chunkBuffer[13], chunkBuffer[14], chunkBuffer[15]));
                     this.UdpClient.Send(chunkBuffer, chunkSize);
                 }
             }
